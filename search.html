@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yacy search</title>
+
+    <script src="http://localhost:8090/jquery/js/jquery-1.7.min.js" type="text/javascript" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            yconf = {
+                url : 'http://127.0.0.1:8090',
+                title : 'YaCy Search Widget',
+                logo : '/yacy/ui/img/yacy-logo.png',
+                link : 'http://www.yacy.net',
+                global : false,
+                width : 500,
+                height : 600,
+                position : ['top',30],
+                theme : 'start'
+            };
+            $.getScript(yconf.url+'/portalsearch/yacy-portalsearch.js', function(){});
+        });
+    </script>
+</head>
+<body>   
+
+<div id="yacylivesearch">
+    <form id="ysearch" method="get" accept-charset="UTF-8" action="http://localhost:8090/yacysearch.html">
+        Live Search <input name="query" id="yquery" class="fancy" type="text" size="15" maxlength="80" value="" />
+        <input type="hidden" name="maximumRecords" value="20" />
+        <input type="hidden" name="resource" value="local" />
+        <input type="hidden" name="verify" value="cacheonly" />
+        <input type="hidden" name="urlmaskfilter" value=".*" />
+        <input type="hidden" name="prefermaskfilter" value="" />
+        <input type="hidden" name="display" value="2" />
+        <input type="hidden" name="nav" value="all" />
+        <input type="submit" name="Enter" value="Search" />
+    </form>
+</div>
+
+</body>
+</html>
