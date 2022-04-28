@@ -1,0 +1,1 @@
+# yacy-search-widget
